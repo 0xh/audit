@@ -40,6 +40,11 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         //
+
+        if (file_exists(base_path('routes/t.php'))) {
+            Route::namespace($this->namespace)->middleware('web')
+                ->group(base_path('routes/t.php'));
+        }
     }
 
     /**
