@@ -148,10 +148,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -161,6 +157,11 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\NovaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * Package Service Providers...
+         */
+        \Jenssegers\Agent\AgentServiceProvider::class
 
     ],
 
@@ -210,6 +211,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
     ],
 
