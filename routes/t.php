@@ -7,9 +7,10 @@ use Jenssegers\Agent\Agent;
 Route::get('/t', function (Request $request) {
 
     //return \App\Models\Post::find(1)->audits[0]->event.PHP_EOL; // 获取事件类型
-    // 只有修改过的属性才会成为其中的一部分
-    return \App\Models\Post::find(1)->audits[1]->getModified();
+    // 获取修改后的属性
+    return \App\Models\Post::find(1)->audits()->latest()->first()->getModified();
 
+    // 获取审核元数据
     return \App\Models\Post::find(1)->audits[0]->getMetadata();
 
     /**
