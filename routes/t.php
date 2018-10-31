@@ -1,24 +1,29 @@
 <?php
 
 use App\Models\Audit;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
+use OwenIt\Auditing\Contracts\AuditDriver;
+use OwenIt\Auditing\Events\Auditing;
+use OwenIt\Auditing\Drivers\Database;
 
 Route::get('/t', function (Request $request) {
 
-    //return \App\Models\Post::find(1)->audits[0]->event.PHP_EOL; // 获取事件类型
+    //event(new Auditing(Post::find(2),new Database()));
+
+    $audit = Post::find(1)->audits()->latest()->first();
+
+    //return $audit->user;
+
+    // Audit Presentation
+    // 获取事件类型
+    //return $audit->event.PHP_EOL;
     // 获取修改后的属性
-    return \App\Models\Post::find(1)->audits()->latest()->first()->getModified();
-
+    //return $audit->getModified();
     // 获取审核元数据
-    return \App\Models\Post::find(1)->audits[0]->getMetadata();
+    //return $audit->getMetadata();
 
-    /**
-        Audit Implementation
-        Audit Transformation
-        Attribute Modifiers
-        Audit Presentation
-     */
 
     //在这节课开始之前，我们需要下下你了解一下 User-Agent（UA），
     //它是 Http 协议中的一部分，客户端会通过这个请求头向访问网站提供浏览器类型、操作系统及版本、浏览器渲染引擎、浏览器语言等等信息的标识。
