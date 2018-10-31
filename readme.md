@@ -1,1 +1,1 @@
-Laravel + Nova
+Laravel
