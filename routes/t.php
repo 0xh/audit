@@ -12,7 +12,9 @@ Route::get('/t', function (Request $request) {
 
     //event(new Auditing(Post::find(2),new Database()));
 
-    $audit = Post::find(1)->audits()->latest()->first();
+    $post = Post::find(1);
+
+    $audit = $post->audits()->latest()->first();
 
     //return $audit->user;
 
@@ -23,7 +25,6 @@ Route::get('/t', function (Request $request) {
     //return $audit->getModified();
     // 获取审核元数据
     //return $audit->getMetadata();
-
 
     //在这节课开始之前，我们需要下下你了解一下 User-Agent（UA），
     //它是 Http 协议中的一部分，客户端会通过这个请求头向访问网站提供浏览器类型、操作系统及版本、浏览器渲染引擎、浏览器语言等等信息的标识。
