@@ -2,9 +2,9 @@
 
 namespace App\Listeners;
 
-use OwenIt\Auditing\Events\Auditing;
+use OwenIt\Auditing\Events\Audited;
 
-class AuditingListener
+class AuditedListener
 {
 
     /**
@@ -20,12 +20,12 @@ class AuditingListener
     /**
      * Handle the event.
      *
-     * @param  Auditing $event
+     * @param  Audited $event
      *
      * @return void
      */
-    public function handle(Auditing $event)
+    public function handle(Audited $event)
     {
-        //dd('Auditing', $event->model, $event->driver);
+        //dd('Audited',$event->model,$event->driver);
     }
 }

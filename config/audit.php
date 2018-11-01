@@ -11,7 +11,10 @@ return [
     |
     */
 
+    // 默认由 auditing 包中自带的模型 ，当然也自定义模型实现
     //'implementation' => OwenIt\Auditing\Models\Audit::class,
+    // 自定义实现时 要完成 \OwenIt\Auditing\Contracts\Audit 对这个接口的实现 ，
+    // 实现过程 auditing 包中已经写好了 ，可以直接 use 过来 \OwenIt\Auditing\Audit; 这个文件
     'implementation' => \App\Models\Audit::class,
 
     /*
