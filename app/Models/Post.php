@@ -21,13 +21,19 @@ class Post extends BaseModel
     ];
 
     /**
-     * 如果AttributeRedactor设置了，则可审计转换将不起作用，因为在转换状态时无法使用编辑数据
+     *
+     * 版本 8.0.0 带来了 AttributeModifier 合同 Auditable，在创建时改进了属性的修改方式 Audit。
+     *
+     * 如果AttributeRedactor设置了，则可审计转换将不起作用，因为在转换状态时无法使用编辑数据。
+     *
+     * 当然也可以自定义扩展 ，需实现 \OwenIt\Auditing\Contracts\AttributeEncoder 接口。
      *
      * Attribute modifiers.
      *
      * @var array
      */
     protected $attributeModifiers = [
+        // 将 title 进行 base64 加密后 进行存储
         'title' => Base64Encoder::class,
     ];
 
@@ -47,5 +53,5 @@ class Post extends BaseModel
     //
     //    return $data;
     //}
-    
+
 }

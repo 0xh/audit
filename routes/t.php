@@ -19,7 +19,7 @@ Route::get('/t', function (Request $request) {
     // Audit Presentation
     // 获取事件类型
     //return $audit->event.PHP_EOL;
-    // 获取修改后的属性
+    // 获取修改后的属性 ,任何编码属性都将以其解码形式返回
     //return $audit->getModified();
     // 获取审核元数据
     //return $audit->getMetadata();
